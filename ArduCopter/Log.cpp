@@ -737,7 +737,7 @@ struct PACKED log_MyNewLog {
 void Copter::Log_Write_MyNewLog(int int_val)
 {
     struct log_MyNewLog pkt = {
-        LOG_PACKET_HEADER_INIT(LOG_GUIDEDTARGET_MSG),
+        LOG_PACKET_HEADER_INIT(LOG_MyNewLog_MSG),
         time_us         : AP_HAL::micros64(),
         int_val         : int_val
     };
