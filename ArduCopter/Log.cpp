@@ -897,6 +897,8 @@ const struct LogStructure Copter::log_structure[] = {
       "THRO",  "QBffffbbbb",  "TimeUS,Stage,Vel,VelZ,Acc,AccEfZ,Throw,AttOk,HgtOk,PosOk" },
     { LOG_PROXIMITY_MSG, sizeof(log_Proximity),
       "PRX",   "QBfffffffffff","TimeUS,Health,D0,D45,D90,D135,D180,D225,D270,D315,DUp,CAn,CDis" },
+    { LOG_MyNewLog_MSG, sizeof(log_MyNewLog),
+      "MyNL",  "QBb",    "TimeUS,int" },
 };
 
 #if CLI_ENABLED == ENABLED
