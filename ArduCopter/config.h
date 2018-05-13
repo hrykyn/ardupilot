@@ -634,6 +634,10 @@
   #error AC_Avoidance relies on AC_FENCE which is disabled
 #endif
 
+#ifndef MY_NEW_PARAMETER_DEFAULT
+ # define MY_NEW_PARAMETER_DEFAULT 100 // default value of my new parameter
+#endif
+
 //////////////////////////////////////////////////////////////////////////////
 // Developer Items
 //

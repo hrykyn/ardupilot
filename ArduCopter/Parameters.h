@@ -367,6 +367,8 @@ public:
 
         // 254,255: reserved
 
+        k_param_my_new_parameter = 260, // 253 - Logging Group
+
         // the k_param_* space is 9-bits in size
         // 511: reserved
     };
@@ -483,6 +485,8 @@ public:
     AP_Int8                 autotune_axis_bitmask;
     AP_Float                autotune_aggressiveness;
     AP_Float                autotune_min_d;
+
+    AP_Int8                my_new_parameter;
 
     // Note: keep initializers here in the same order as they are declared
     // above.
