@@ -524,6 +524,8 @@ void Copter::one_hz_loop()
 // test_loop - runs at 1Hz
 void Copter::test_loop()
 {
+	DataFlash_Class::instance()->Log_Write("MY_TEST_LOG", "TimeUS,MyNewParameter", "Qb", AP_HAL::micros64(), (int)g.my_new_parameter);
+	Log_Write_MyNewLog(12345);
 }
 
 // called at 50hz
