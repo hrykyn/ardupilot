@@ -727,14 +727,15 @@ void Copter::Log_Write_GuidedTarget(uint8_t target_type, const Vector3f& pos_tar
     DataFlash.WriteBlock(&pkt, sizeof(pkt));
 }
 
+/*
 struct PACKED log_MyNewLog {
     LOG_PACKET_HEADER;
     uint64_t time_us;
-    int int_val;
+    int8_t int_val;
 };
 
 // Write a Guided mode target
-void Copter::Log_Write_MyNewLog(int int_val)
+void Copter::Log_Write_MyNewLog(int8_t int_val)
 {
     struct log_MyNewLog pkt = {
         LOG_PACKET_HEADER_INIT(LOG_MyNewLog_MSG),
@@ -743,6 +744,7 @@ void Copter::Log_Write_MyNewLog(int int_val)
     };
     DataFlash.WriteBlock(&pkt, sizeof(pkt));
 }
+*/
 
 // precision landing logging
 struct PACKED log_Throw {
@@ -897,8 +899,8 @@ const struct LogStructure Copter::log_structure[] = {
       "THRO",  "QBffffbbbb",  "TimeUS,Stage,Vel,VelZ,Acc,AccEfZ,Throw,AttOk,HgtOk,PosOk" },
     { LOG_PROXIMITY_MSG, sizeof(log_Proximity),
       "PRX",   "QBfffffffffff","TimeUS,Health,D0,D45,D90,D135,D180,D225,D270,D315,DUp,CAn,CDis" },
-    { LOG_MyNewLog_MSG, sizeof(log_MyNewLog),
-      "MyNL",  "QBb",    "TimeUS,int" },
+    //{ LOG_MyNewLog_MSG, sizeof(log_MyNewLog),
+    //  "MyNL",  "QBb",    "TimeUS,int" },
 };
 
 #if CLI_ENABLED == ENABLED
