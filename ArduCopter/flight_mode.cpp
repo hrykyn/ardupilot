@@ -9,6 +9,7 @@
 // optional force parameter used to force the flight mode change (used only first time mode is set)
 // returns true if mode was successfully set
 // ACRO, STABILIZE, ALTHOLD, LAND, DRIFT and SPORT can always be set successfully but the return state of other flight modes should be checked and the caller should deal with failures appropriately
+
 bool Copter::set_mode(control_mode_t mode, mode_reason_t reason)
 {
     // boolean to record if flight mode could be set
@@ -116,6 +117,10 @@ bool Copter::set_mode(control_mode_t mode, mode_reason_t reason)
 
         case GUIDED_NOGPS:
             success = guided_nogps_init(ignore_checks);
+            break;
+
+        case REVERSE:
+            success = reverse_init(ignore_checks);
             break;
 
         default:
@@ -257,6 +262,10 @@ void Copter::update_flight_mode()
 
         case GUIDED_NOGPS:
             guided_nogps_run();
+            break;
+
+        case REVERSE:
+            reverse_run();
             break;
 
         default:
@@ -432,6 +441,9 @@ void Copter::notify_flight_mode(control_mode_t mode)
         case GUIDED_NOGPS:
             notify.set_flight_mode_str("GNGP");
             break;
+        case REVERSE:
+            notify.set_flight_mode_str("REVS");
+            break;
         default:
             notify.set_flight_mode_str("----");
             break;
@@ -497,6 +509,9 @@ void Copter::print_flight_mode(AP_HAL::BetterStream *port, uint8_t mode)
         break;
     case GUIDED_NOGPS:
         port->printf("GUIDED_NOGPS");
+        break;
+    case REVERSE:
+        port->printf("REVERSE");
         break;
     default:
         port->printf("Mode(%u)", (unsigned)mode);
