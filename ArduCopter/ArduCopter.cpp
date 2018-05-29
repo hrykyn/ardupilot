@@ -453,6 +453,8 @@ void Copter::one_hz_loop()
     // indicates that the sensor or subsystem is present but not
     // functioning correctly
     update_sensor_status_flags();
+
+    gcs().send_text(MAV_SEVERITY_DEBUG, "r, p, y, t = %0.4f, %0.4f, %0.4f, %0.4f", motors->get_roll(), motors->get_pitch(), motors->get_yaw(), motors->get_throttle());
 }
 
 // called at 50hz
