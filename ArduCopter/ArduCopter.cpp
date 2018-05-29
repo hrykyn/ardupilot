@@ -474,6 +474,12 @@ void Copter::update_GPS(void)
         }
     }
 
+    // log write test , the number of gps sensors
+    DataFlash.Log_Write("GPSN", "TimeUS,GPSNumber", "Qb",
+    								AP_HAL::micros64(),
+    								gps.num_sensors()
+    					);
+
     if (gps_updated) {
         // set system time if necessary
         set_system_time_from_GPS();
