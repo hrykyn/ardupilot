@@ -369,6 +369,7 @@ public:
         k_param_DataFlash = 253, // 253 - Logging Group
 
         // 254,255: reserved
+        k_param_my_new_parameter = 300, // 300 - new param
 
         // the k_param_* space is 9-bits in size
         // 511: reserved
@@ -480,6 +481,7 @@ public:
     AP_Float                autotune_min_d;
 #endif
 
+    AP_Int16                my_new_parameter;
     // Note: keep initializers here in the same order as they are declared
     // above.
     Parameters()

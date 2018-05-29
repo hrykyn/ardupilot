@@ -728,3 +728,7 @@
  #define DEVO_TELEM_ENABLED ENABLED
 #endif
 #endif
+
+#ifndef MY_NEW_PARAMETER_DEFAULT
+ # define MY_NEW_PARAMETER_DEFAULT	100 // default value for my new parameter
+#endif
